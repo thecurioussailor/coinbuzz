@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CoinBuzz 🚀
 
-## Getting Started
+A modern Web3 dashboard built with Next.js that allows users to connect their Phantom wallet and track live SOL/BONK prices from the Birdeye API.
 
-First, run the development server:
+## ✨ Features
+
+- **🔗 Phantom Wallet Integration** - Connect and manage your Solana wallet
+- **�� Live Price Feeds** - Real-time SOL and BONK price updates every 5 seconds
+- **�� Wallet Balance** - View your SOL balance and USD equivalent
+- **🎨 Modern UI** - Clean, responsive design with dark theme
+- **⚡ Real-time Updates** - Automatic price polling and balance updates
+- **📱 Responsive Design** - Works seamlessly on desktop and mobile
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Blockchain**: Solana Web3.js
+- **Wallet**: Phantom Wallet Adapter
+- **API**: Birdeye API for price data
+- **Package Manager**: pnpm
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 18+ 
+- pnpm (recommended) or npm
+- Birdeye API key
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd coinbuzz
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+
+4. **Run the development server**
+   ```bash
+   pnpm dev
+   ```
+
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📁 Project Structure
+coinbuzz/
+├── app/
+│ ├── api/price/ # Birdeye API proxy route
+│ ├── dashboard/ # Dashboard pages
+│ ├── layout.tsx # Root layout with wallet provider
+│ └── page.tsx # Landing page
+├── components/
+│ ├── Navbar.tsx # Top navigation bar
+│ ├── Sidebar.tsx # Dashboard sidebar
+│ └── WalletContextProvider.tsx # Solana wallet context
+├── public/ # Static assets
+
+## 🔧 API Integration
+
+The project uses Birdeye API for real-time price data:
+
+- **SOL**: `So11111111111111111111111111111111111111112`
+- **BONK**: `DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263`
+
+### Getting a Birdeye API Key
+
+1. Visit [Birdeye API](https://docs.birdeye.so/reference/overview)
+2. Sign up for an account
+3. Generate your API key
+4. Add it to your `.env.local` file
+
+## 🎯 Usage
+
+1. **Landing Page**: Visit the homepage to see the project overview
+2. **Connect Wallet**: Click "Dashboard" to navigate to the main interface
+3. **Connect Phantom**: Use the wallet button in the navbar to connect
+4. **View Prices**: See live SOL/BONK prices updating every 5 seconds
+5. **Check Balance**: View your SOL balance and USD equivalent
+
+## 🚀 Deployment
+
+### Build for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm build
+pnpm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Deploy to Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Add your `BIRDEYE_API_KEY` to Vercel environment variables
+4. Deploy!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔒 Environment Variables
 
-## Learn More
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `BIRDEYE_API_KEY` | Your Birdeye API key for price data | Yes |
+| `NEXT_PUBLIC_SOLANA_RPC` | Custom Solana RPC endpoint | No |
 
-To learn more about Next.js, take a look at the following resources:
+## 📝 Available Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `pnpm dev` - Start development server with Turbopack
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤝 Contributing
 
-## Deploy on Vercel
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is built for a Web3 developer trial assessment.
+
+---
+
+Built with ❤️ for the Web3 ecosystem
