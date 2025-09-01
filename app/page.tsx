@@ -1,66 +1,39 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { useWallet } from "@solana/wallet-adapter-react";
+import Link from "next/link";
 
 export default function Home() {
-  const { publicKey } = useWallet();
-  const [symbol, setSymbol] = useState<"SOL" | "BONK">("SOL");
-  const [price, setPrice] = useState<number | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  async function loadPrice(signal?: AbortSignal) {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/price?symbol=${symbol}`, { signal, cache: "no-store" });
-      const json = await res.json();
-      setPrice(typeof json?.price === "number" ? json.price : null);
-    } catch {}
-    finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    const controller = new AbortController();
-    loadPrice(controller.signal);
-    const id = setInterval(() => loadPrice(controller.signal), 5000);
-    return () => {
-      controller.abort();
-      clearInterval(id);
-    };
-  }, [symbol]);
-
-  const address = publicKey?.toBase58();
-  const short = address ? `${address.slice(0, 4)}...${address.slice(-4)}` : "";
-
   return (
-    <main style={{ maxWidth: 720, margin: "48px auto", padding: "0 16px" }}>
-      <h1 style={{ fontSize: 24, marginBottom: 16 }}>CoinBuzz</h1>
-
-      <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 16 }}>
-        <WalletMultiButton />
-        {address && <code style={{ opacity: 0.85 }}>{short}</code>}
-      </div>
-
-      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-        <label htmlFor="symbol">Token:</label>
-        <select
-          id="symbol"
-          value={symbol}
-          onChange={(e) => setSymbol(e.target.value as "SOL" | "BONK")}
-        >
-          <option value="SOL">SOL</option>
-          <option value="BONK">BONK</option>
-        </select>
-
-        <div style={{ marginLeft: 8 }}>
-          <strong>Price:</strong>{" "}
-          {loading && price == null ? "Loading..." : price !== null ? `$${price.toLocaleString()}` : "—"}{" "}
-          <span style={{ opacity: 0.6 }}>({symbol})</span>
+    <main className="min-h-screen bg-black text-white flex flex-col">
+      {/* Hero Section */}
+      <section className="flex-1 flex items-center justify-center relative overflow-hidden">
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-[600px] w-[900px] rounded-full bg-[#1A3555]/20 blur-3xl pointer-events-none" />
+        <div className="text-center px-6 relative z-10">
+          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
+            Be the Insight Others Wait For.
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+            Say goodbye to <span className="text-[#436ea2]">overhyped token launches</span>
+          </p>
+          <div className="mt-10">
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center rounded-full bg-[#1A3555] hover:bg-[#1A3555] transition-colors px-8 py-4 font-semibold text-lg"
+            >
+              Dashboard
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 bg-black/50 backdrop-blur">
+        <div className="mx-auto max-w-4xl px-6 py-8">
+          <div className="text-center">
+              <p>© {new Date().getFullYear()} CoinBuzz. Built for Web3 Developer Trial.</p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
