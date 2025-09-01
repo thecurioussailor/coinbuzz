@@ -13,11 +13,11 @@ type Item = {
 
 const items: Item[] = [
   { href: "/dashboard", label: "Dashboard", Icon: RiDashboardFill },
-  { href: "/dashboard/markets", label: "Markets", Icon: RiLineChartFill },
-  { href: "/dashboard/wallet", label: "Wallet", Icon: RiWalletFill },
-  { href: "/dashboard/community", label: "Community", Icon: RiGroupFill },
-  { href: "/dashboard/settings", label: "Settings", Icon: RiSettingsFill },
-  { href: "/dashboard/help", label: "Help", Icon: RiInformationFill },
+  { href: "/#", label: "Markets", Icon: RiLineChartFill },
+  { href: "/#", label: "Wallet", Icon: RiWalletFill },
+  { href: "/#", label: "Community", Icon: RiGroupFill },
+  { href: "/#", label: "Settings", Icon: RiSettingsFill },
+  { href: "/#", label: "Help", Icon: RiInformationFill },
 ];
 
 export default function Sidebar() {
