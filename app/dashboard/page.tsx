@@ -164,11 +164,7 @@ export default function DashboardPage() {
         <div className="rounded-2xl bg-white/[0.03] ring-1 ring-white/10 p-5">
           <div className="text-sm text-white/60">Current Price</div>
           <div className="mt-2 text-lg font-semibold text-white/80">
-            {currentToken.loading ? (
-              <span className="text-white/40">Loading...</span>
-            ) : currentToken.error ? (
-              <span className="text-rose-400">Error</span>
-            ) : currentToken.price !== null ? (
+            {currentToken.price !== null ? (
               `$${currentToken.price.toLocaleString()}`
             ) : (
               <span className="text-white/40">No data</span>
@@ -208,11 +204,7 @@ export default function DashboardPage() {
           {/* Price Display */}
           <div className="mt-4 mb-6">
             <div className="text-3xl font-bold text-white">
-              {currentToken.loading ? (
-                "Loading..."
-              ) : currentToken.error ? (
-                <span className="text-rose-400">API Error</span>
-              ) : currentToken.price !== null ? (
+              {currentToken.price !== null ? (
                 selectedToken === "SOL" ? (
                   `$${currentToken.price.toFixed(4)}`
                 ) : selectedToken === "BONK" ? (
