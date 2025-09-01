@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { IconLogo, IconGrid, IconChart, IconWallet, IconUsers, IconSettings, IconInfo, IconPower } from "@/components/Icons";
 import { GiAbstract048 } from "react-icons/gi";
 import { RiDashboardFill, RiLineChartFill, RiWalletFill, RiGroupFill, RiSettingsFill, RiInformationFill } from "react-icons/ri";
 
