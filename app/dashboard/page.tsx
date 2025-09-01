@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useWallet, useConnection } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
+import Image from "next/image";
 
 type TokenData = {
   symbol: string;
@@ -250,7 +251,9 @@ export default function DashboardPage() {
           <div className="rounded-xl bg-white/[0.02] ring-1 ring-white/10 px-4 py-3">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-full bg-gradient-to-br from-purple-500/30 to-blue-500/30 ring-1 ring-purple-400/30 flex items-center justify-center">
-                <span className="text-sm font-bold">SOL</span>
+                <span className="text-sm font-bold">
+                    <Image src="/sol.webp" alt="Solana" width={40} height={40} />
+                </span>
               </div>
               <div className="flex-1">
                 <div className="text-sm font-medium text-white/60">Solana</div>
@@ -274,7 +277,9 @@ export default function DashboardPage() {
           <div className="rounded-xl bg-white/[0.02] ring-1 ring-white/10 px-4 py-3">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-full bg-gradient-to-br from-orange-500/30 to-yellow-500/30 ring-1 ring-orange-400/30 flex items-center justify-center">
-                <span className="text-xs font-bold">BONK</span>
+                <span className="text-xs font-bold">
+                    <Image src="/bonk.webp" alt="Bonk" width={40} height={40} />
+                </span>
               </div>
               <div className="flex-1">
                 <div className="text-sm font-medium text-white/80">Bonk</div>
